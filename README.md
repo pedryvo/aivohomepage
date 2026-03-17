@@ -47,6 +47,3 @@ Bem-vindo ao repositório da **AIVO**, uma landing page premium desenvolvida par
 - `/components/sections`: Seções principais da landing page (Hero, Services, CaseStudy, etc).
 - `/components/ui`: Componentes base do Shadcn/UI.
 - `/public`: Assets estáticos (Logo, Ícones, Imagens dos cases).
-
----
-Desenvolvido com ❤️ por Antigravity.
