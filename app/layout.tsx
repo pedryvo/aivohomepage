@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: "EFjgHyIotr2jEwa5f1zQyizwoHMTXYhevaxgZhFpMik",
+  },
   openGraph: {
     title: "Ai-vo | MVPs e automações para processos críticos",
     description:
