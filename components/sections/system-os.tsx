@@ -57,10 +57,10 @@ export function SystemOS() {
 
             <div className="max-w-4xl mx-auto space-y-4">
               <p className="text-zinc-400 text-xl font-medium leading-relaxed">
-                Pela primeira vez na história, você consegue dar para o seu negócio a mesma infraestrutura operacional que um grupo empresarial de R$ 100 milhões tem.
+                Você não precisa crescer no caos. Hoje já dá para estruturar uma operação mais previsível, integrada e rápida sem montar uma empresa inchada.
               </p>
               <p className="text-white font-black text-2xl uppercase tracking-tight mt-6">
-                Não com 50 funcionários. <span className="text-red-500">Com IA.</span>
+                Não com mais remendo. <span className="text-red-500">Com IA.</span>
               </p>
             </div>
           </div>
@@ -94,7 +94,7 @@ export function SystemOS() {
           {/* Footer */}
           <div className="text-center">
             <p className="text-zinc-400 font-bold tracking-widest uppercase text-sm">
-              Isso é um Sistema Operacional com IA. <span className="text-white">É o negócio inteiro rodando.</span>
+              Isso é um Sistema Operacional com IA. <span className="text-white">É a operação crítica rodando com menos atrito.</span>
             </p>
           </div>
         </motion.div>

@@ -86,18 +86,18 @@ export function CaseStudy() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center mb-24"
         >
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-sm font-bold text-white mb-8">
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-1 text-sm font-bold text-white">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
             Case de Sucesso
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter mb-8 italic uppercase leading-[0.9]">
-            VCANews: <span className="text-primary italic">Plataforma 360°</span>
+          <h2 className="mb-8 text-4xl leading-[0.9] font-black tracking-tighter italic uppercase md:text-5xl lg:text-7xl">
+            VCANews: <span className="text-primary italic">MVP que virou operação digital</span>
           </h2>
-          <p className="text-zinc-400 text-lg md:text-xl font-medium max-w-2xl mx-auto">
-            De um simples portal a um ecossistema digital completo. Veja como transformamos uma ideia em uma das maiores plataformas da região.
+          <p className="mx-auto max-w-3xl text-lg font-medium text-zinc-400 md:text-xl">
+            Um exemplo real de como a Ai-vo transforma uma necessidade operacional em produto funcional, com módulos, painel, marketplace e estrutura de crescimento.
           </p>
         </motion.div>
 
@@ -194,11 +194,11 @@ export function CaseStudy() {
 
             <Button 
               size="lg" 
-              className="h-14 px-8 rounded-full bg-white text-black hover:bg-primary hover:text-white transition-all font-bold italic uppercase"
+              className="whatsapp-cta h-14 rounded-full px-8 font-bold italic uppercase text-white transition-all"
               asChild
             >
               <a href="https://wa.me/5577988350905" target="_blank" rel="noopener noreferrer">
-                Quero um projeto assim
+                Quero um MVP assim
               </a>
             </Button>
           </div>

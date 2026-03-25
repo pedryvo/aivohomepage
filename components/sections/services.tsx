@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { MessageSquare, Laptop, CheckCircle2, ArrowUpRight, Settings } from "lucide-react";
 
 const services = [
@@ -14,35 +14,35 @@ const services = [
       "Qualificação automática de clientes",
       "Integração com seu catálogo"
     ],
-    color: "bg-green-50"
+    eyebrow: "Canal comercial"
   },
   {
-    title: "Sistemas Web (MVPs)",
-    description: "Criamos a primeira versão do seu sistema ou aplicativo de forma rápida para validar sua ideia.",
+    title: "MVPs operacionais",
+    description: "Criamos a primeira versão funcional do processo crítico da sua empresa para tirar o gargalo do improviso e colocar a operação para rodar.",
     icon: Laptop,
     features: [
-      "Desenvolvimento ágil",
-      "Focado no essencial",
-      "Pronto para crescer"
+      "Escopo focado no essencial",
+      "Entrega rápida para ganhar tração",
+      "Base pronta para evoluir"
     ],
-    color: "bg-blue-50"
+    eyebrow: "Processo crítico"
   },
   {
     title: "Sistemas Personalizados",
-    description: "Sistemas feitos sob medida para organizar e acelerar os processos internos da sua empresa.",
+    description: "Sistemas sob medida para centralizar operação, integrar etapas e dar previsibilidade para a rotina da empresa.",
     icon: Settings,
     features: [
       "Automação de tarefas manuais",
       "Dashboards de indicadores",
       "Segurança e controle de dados"
     ],
-    color: "bg-purple-50"
+    eyebrow: "Escala operacional"
   }
 ];
 
 export function Services() {
   return (
-    <section id="servicos" className="bg-white py-32 px-4 sm:px-6 lg:px-8">
+    <section id="servicos" className="bg-white px-4 py-32 sm:px-6 lg:px-8">
       <div className="container mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -50,9 +50,12 @@ export function Services() {
           viewport={{ once: true }}
           className="mb-20 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-black mb-6 italic uppercase">O que fazemos por você</h2>
-          <p className="text-zinc-500 max-w-2xl mx-auto font-medium text-lg">
-            Focamos na simplicidade que gera resultados. Transformamos tecnologia complexa em soluções fáceis de usar.
+          <p className="mb-4 text-[0.72rem] font-bold uppercase tracking-[0.26em] text-primary">Oferta Ai-vo</p>
+          <h2 className="mb-6 text-4xl font-black tracking-[-0.05em] text-black italic uppercase md:text-5xl">
+            O que destrava a operação
+          </h2>
+          <p className="mx-auto max-w-3xl text-lg font-medium text-zinc-600">
+            A Ai-vo entra quando a empresa precisa parar de remendar processo e colocar uma estrutura simples, funcional e comercialmente útil para rodar.
           </p>
         </motion.div>
 
@@ -66,9 +69,13 @@ export function Services() {
               transition={{ delay: index * 0.1 }}
               className="h-full"
             >
-              <Card className="group h-full relative overflow-hidden border-zinc-100 bg-zinc-50/30 p-2 text-black transition-all hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 rounded-[2rem]">
+              <Card className="group relative h-full overflow-hidden rounded-[2rem] border border-black/8 bg-white p-2 text-black shadow-[0_18px_50px_rgba(16,17,19,0.05)] transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_26px_70px_rgba(255,69,58,0.10)]">
                 <div className="p-6 md:p-8">
-                  <div className={`mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl ${service.color} transition-transform group-hover:scale-110 group-hover:rotate-3`}>
+                  <p className="mb-6 text-[0.72rem] font-bold uppercase tracking-[0.24em] text-zinc-500">
+                    {service.eyebrow}
+                  </p>
+
+                  <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/15 bg-primary/8 transition-transform group-hover:scale-110 group-hover:rotate-3">
                     <service.icon className="h-7 w-7 text-primary" />
                   </div>
                   
@@ -77,7 +84,7 @@ export function Services() {
                     <ArrowUpRight className="h-6 w-6 text-zinc-300 transition-colors group-hover:text-primary" />
                   </div>
 
-                  <CardDescription className="text-zinc-500 text-lg font-medium leading-relaxed mb-8">
+                  <CardDescription className="mb-8 text-lg leading-relaxed font-medium text-zinc-600">
                     {service.description}
                   </CardDescription>
 

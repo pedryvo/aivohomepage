@@ -67,10 +67,50 @@
   --input: oklch(0.9 0 0);
   --ring: oklch(0.618 0.207 23.465);
   --radius: 0.5rem;
+  --whatsapp-green: #25d366;
+  --whatsapp-green-strong: #1ebe57;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@keyframes whatsapp-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(37, 211, 102, 0.18),
+      0 0 18px rgba(37, 211, 102, 0.18),
+      0 0 34px rgba(37, 211, 102, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 0 2px rgba(37, 211, 102, 0.18),
+      0 0 30px rgba(37, 211, 102, 0.32),
+      0 0 56px rgba(37, 211, 102, 0.18);
+  }
+}
+
+@layer utilities {
+  .whatsapp-cta {
+    background: var(--whatsapp-green) !important;
+    color: white !important;
+    animation: whatsapp-glow 2.8s ease-in-out infinite;
+  }
+
+  .whatsapp-cta:hover {
+    background: var(--whatsapp-green-strong) !important;
+    color: white !important;
+  }
+
+  .whatsapp-cta:is(a:hover, button:hover) {
+    background: var(--whatsapp-green-strong) !important;
+    color: white !important;
+  }
+
+  .whatsapp-cta a:hover {
+    color: white !important;
+  }
 }
 
 @layer base {

@@ -5,24 +5,24 @@ import { motion } from "framer-motion";
 const steps = [
   {
     number: "01",
-    title: "Conversa Inicial",
-    description: "Você nos conta como sua empresa funciona e onde você perde mais tempo hoje."
+    title: "Mapeamos o gargalo",
+    description: "Entendemos onde sua operação trava, qual processo mais consome energia e o que precisa sair do improviso primeiro."
   },
   {
     number: "02",
-    title: "Planejamento Simples",
-    description: "Desenhamos a solução ideal para você, sem complicação e com foco no custo-benefício."
+    title: "Desenhamos o MVP",
+    description: "Estruturamos a menor versão que já resolve o problema com clareza, sem inflar escopo nem vender sistema demais."
   },
   {
     number: "03",
-    title: "Entrega e Suporte",
-    description: "Colocamos tudo para rodar e acompanhamos os primeiros dias para garantir o sucesso."
+    title: "Colocamos para rodar",
+    description: "Entregamos, ajustamos os primeiros dias e deixamos o processo mais rápido, previsível e fácil de escalar."
   }
 ];
 
 export function HowItWorks() {
   return (
-    <section id="como-funciona" className="bg-zinc-50 border-y border-zinc-100 py-32 px-4 sm:px-6 lg:px-8">
+    <section id="como-funciona" className="border-y border-black/8 bg-zinc-50 px-4 py-32 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -30,9 +30,10 @@ export function HowItWorks() {
           viewport={{ once: true }}
           className="mb-24 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-black mb-6 italic uppercase">Como funciona</h2>
-          <p className="text-zinc-500 font-medium text-xl max-w-2xl mx-auto">
-            Um processo transparente e direto para você parar de se preocupar com a tecnologia e focar no seu lucro.
+          <p className="mb-4 text-[0.72rem] font-bold uppercase tracking-[0.26em] text-primary">Método</p>
+          <h2 className="mb-6 text-4xl font-black tracking-[-0.05em] text-black italic uppercase md:text-5xl">Como isso sai do papel</h2>
+          <p className="mx-auto max-w-3xl text-xl font-medium text-zinc-600">
+            Nada de projeto confuso. O processo é curto, comercialmente defensável e focado em colocar uma parte crítica da empresa para funcionar melhor.
           </p>
         </motion.div>
 

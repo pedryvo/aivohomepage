@@ -10,19 +10,38 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Aivo | Sua empresa no piloto automático com IA",
-  description: "Automatize seu atendimento no WhatsApp e pare de perder vendas. Criamos sistemas inteligentes para sua empresa escalar com tecnologia e eficiência.",
+  metadataBase: new URL("https://aivolabs.online"),
+  title: "Ai-vo | MVPs e automações para processos críticos",
+  description:
+    "Criamos MVPs operacionais e automações com IA para pequenas e médias empresas ganharem velocidade, clareza e previsibilidade.",
+  keywords: [
+    "MVP operacional",
+    "automação com IA",
+    "processos críticos",
+    "sistema sob medida",
+    "automação de WhatsApp",
+    "IA para pequenas empresas",
+    "IA para médias empresas",
+  ],
+  alternates: {
+    canonical: "https://aivolabs.online",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: "Aivo | Sua empresa no piloto automático com IA",
-    description: "Automatize seu atendimento no WhatsApp e pare de perder vendas. Criamos sistemas inteligentes para sua empresa escalar com tecnologia e eficiência.",
-    url: "https://aivo.com.br",
-    siteName: "Aivo",
+    title: "Ai-vo | MVPs e automações para processos críticos",
+    description:
+      "Criamos MVPs operacionais e automações com IA para pequenas e médias empresas ganharem velocidade, clareza e previsibilidade.",
+    url: "https://aivolabs.online",
+    siteName: "Ai-vo",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Aivo Logo",
+        alt: "Ai-vo Logo",
       },
     ],
     locale: "pt_BR",
@@ -30,8 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aivo | Sua empresa no piloto automático com IA",
-    description: "Automatize seu atendimento no WhatsApp e pare de perder vendas.",
+    title: "Ai-vo | MVPs e automações para processos críticos",
+    description:
+      "MVPs operacionais e automações com IA para pequenas e médias empresas.",
     images: ["/opengraph-image.png"],
   },
 };

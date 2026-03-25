@@ -22,6 +22,7 @@ export function Footer() {
           </div>
           
           <div className="flex gap-8 text-sm font-bold text-zinc-600 uppercase tracking-tighter">
+            <Link href="#cases" className="hover:text-primary transition-colors">Case</Link>
             <Link href="#servicos" className="hover:text-primary transition-colors">Serviços</Link>
             <Link href="#como-funciona" className="hover:text-primary transition-colors">Como Funciona</Link>
             <Link href="#faq" className="hover:text-primary transition-colors">FAQ</Link>
