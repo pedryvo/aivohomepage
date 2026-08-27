@@ -75,6 +75,30 @@ export function RadioPlayerHero() {
       <div className="absolute top-1/2 right-10 w-[350px] h-[350px] bg-amber-700/10 rounded-full blur-[110px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top Partner Banner Radios.com.br */}
+        <div className="flex flex-col items-center justify-center mb-6">
+          <a
+            href="https://www.radios.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block transition-all hover:scale-105 active:scale-95"
+            title="Ouça a Rádio Doces Memórias no Radios.com.br"
+          >
+            <div className="p-1 sm:p-1.5 rounded-2xl bg-stone-900/90 border border-amber-500/30 group-hover:border-amber-400/80 shadow-2xl shadow-black/80 transition-all">
+              <img
+                src="https://img.radios.com.br/divulgue/banner/2025/300x100/300x100_frase1@2x.png"
+                alt="Ouça no Radios.com.br - Rádio Doces Memórias"
+                width={300}
+                height={100}
+                className="h-14 sm:h-20 w-auto rounded-xl object-contain"
+              />
+            </div>
+          </a>
+          <span className="text-[10px] text-amber-300/60 mt-1.5 font-medium uppercase tracking-wider">
+            Sintonize também no Radios.com.br
+          </span>
+        </div>
+
         {/* Header Title Section */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider mb-5 shadow-sm">
