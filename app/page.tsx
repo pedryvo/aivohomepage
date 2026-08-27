@@ -1,47 +1,46 @@
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { Hero } from "@/components/sections/hero";
-import { Services } from "@/components/sections/services";
-import { HowItWorks } from "@/components/sections/how-it-works";
-import { SystemOS } from "@/components/sections/system-os";
-import { CaseStudy } from "@/components/sections/case-study";
-import { FAQ } from "@/components/sections/faq";
+import { RadioPlayerHero } from "@/components/player/radio-player-hero";
+import { FloatingPlayer } from "@/components/player/floating-player";
+import { Genres } from "@/components/sections/genres";
+import { Schedule } from "@/components/sections/schedule";
+import { About } from "@/components/sections/about";
+import { SongRequest } from "@/components/sections/song-request";
 import { Contact } from "@/components/sections/contact";
+import { RADIO_CONFIG } from "@/lib/radio-config";
 
 export default function Home() {
-  const seoSchema = {
+  const radioSchema = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: "Ai-vo",
-    url: "https://aivolabs.online",
-    areaServed: "Brasil",
+    "@type": "RadioStation",
+    name: RADIO_CONFIG.name,
+    url: "https://radiodocessmemorias.com.br",
     description:
-      "MVPs operacionais e automações com IA para pequenas e médias empresas que precisam destravar processos críticos.",
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "sales",
-      telephone: "+55-77-98835-0905",
-      availableLanguage: "Português",
-    },
-    sameAs: ["https://aivolabs.online"],
+      "Rádio Web Doces Memórias - Os grandes sucessos do passado em um só lugar. Flashback 70s, 80s, 90s, MPB de raiz e baladas românticas inesquecíveis.",
+    genre: ["Flashback", "MPB", "Romantic", "Oldies", "Bossa Nova"],
+    email: RADIO_CONFIG.contactEmail,
+    broadcastDisplayName: RADIO_CONFIG.name,
+    broadcastFrequency: RADIO_CONFIG.frequencyLabel,
+    areaServed: "Global",
+    inLanguage: "pt-BR",
   };
 
   return (
-    <div className="min-h-screen bg-white text-black selection:bg-primary/30">
+    <div className="min-h-screen bg-[#0c0a09] text-stone-100 selection:bg-amber-500/30 selection:text-amber-200">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(radioSchema) }}
+      />
       <Navbar />
       <main>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(seoSchema) }}
-        />
-        <Hero />
-        <CaseStudy />
-        <Services />
-        <SystemOS />
-        <HowItWorks />
-        <FAQ />
+        <RadioPlayerHero />
+        <Genres />
+        <Schedule />
+        <About />
+        <SongRequest />
         <Contact />
       </main>
+      <FloatingPlayer />
       <Footer />
     </div>
   );

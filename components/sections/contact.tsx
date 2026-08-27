@@ -1,61 +1,169 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import { MessageSquare, ArrowRight } from "lucide-react";
+import React, { useState } from "react";
+import { Mail, Copy, Check, Send, Sparkles, MessageSquare, Radio, Heart } from "lucide-react";
+import { RADIO_CONFIG } from "@/lib/radio-config";
 
 export function Contact() {
-  const whatsappNumber = "5577988350905";
-  const message = encodeURIComponent("Olá! Gostaria de falar com um consultor sobre automação com IA.");
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+  const [copied, setCopied] = useState(false);
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const [senderName, setSenderName] = useState("");
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(RADIO_CONFIG.contactEmail);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
+  const handleSendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    const mailSubject = encodeURIComponent(
+      subject || `[Contato] Rádio Doces Memórias - ${senderName || "Ouvinte"}`
+    );
+    const mailBody = encodeURIComponent(
+      `Olá, equipe da Rádio Doces Memórias!\n\n` +
+      `Nome: ${senderName || "Não informado"}\n\n` +
+      `Mensagem:\n${message || "Olá, gostaria de entrar em contato com a rádio."}\n\n` +
+      `Enviado através da página de contato.`
+    );
+    window.location.href = `mailto:${RADIO_CONFIG.contactEmail}?subject=${mailSubject}&body=${mailBody}`;
+  };
 
   return (
-    <section id="contato" className="border-y border-black/8 bg-zinc-50 px-4 py-24 sm:px-6 lg:px-8">
-      <div className="container mx-auto max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="rounded-[2.5rem] border border-black/8 bg-white p-8 text-center shadow-[0_24px_80px_rgba(16,17,19,0.08)] md:p-16"
-        >
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1 text-sm font-bold text-primary">
-            <MessageSquare className="h-4 w-4" />
-            <span>Próximo passo</span>
+    <section id="contato" className="py-20 md:py-28 bg-[#100e0b] relative overflow-hidden border-t border-stone-900">
+      {/* Background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-amber-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4">
+            <Mail className="size-3.5" />
+            <span>Canal Oficial de Atendimento</span>
           </div>
-          
-          <h2 className="mb-8 text-4xl font-black tracking-tighter text-black md:text-5xl lg:text-6xl">
-            Se existe um processo travando sua empresa, <span className="text-primary italic">vamos mapear isso no WhatsApp.</span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+            Fale Conosco
           </h2>
-          
-          <p className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed font-medium text-zinc-600">
-            A conversa é direta: entendemos o gargalo, avaliamos se faz sentido automação ou MVP e mostramos o caminho mais enxuto para a sua operação.
+          <p className="mt-4 text-stone-400 text-base sm:text-lg font-light">
+            Dúvidas, sugestões, parcerias ou homenagens? Nosso canal oficial de contato é exclusivamente pelo e-mail abaixo.
           </p>
-          
-          <div className="flex flex-col items-center gap-6">
-            <Button 
-              size="lg" 
-              className="whatsapp-cta h-16 rounded-full border-none px-10 text-xl font-bold group text-white"
-              asChild
-            >
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                <Image 
-                  src="/WhatsApp.svg" 
-                  alt="WhatsApp" 
-                  width={24} 
-                  height={24} 
-                  className="mr-3"
-                />
-                Falar com a Ai-vo agora
-                <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
-              </a>
-            </Button>
-            
-            <p className="text-sm font-medium whitespace-nowrap text-zinc-400">
-              Sem formulário, sem email e sem fila longa. Direto no WhatsApp.
+        </div>
+
+        {/* Contact Card Container */}
+        <div className="max-w-4xl mx-auto">
+          {/* Main Email Hero Highlight */}
+          <div className="rounded-3xl bg-gradient-to-b from-[#1c1815] to-[#120f0d] border-2 border-amber-500/30 p-8 sm:p-10 md:p-12 text-center shadow-2xl relative overflow-hidden mb-8">
+            <div className="size-16 sm:size-20 rounded-3xl bg-gradient-to-tr from-amber-600 to-yellow-400 p-[2px] mx-auto mb-6 shadow-lg shadow-amber-500/20">
+              <div className="size-full bg-[#16120e] rounded-[22px] flex items-center justify-center text-amber-400">
+                <Mail className="size-8 sm:size-10" />
+              </div>
+            </div>
+
+            <span className="text-xs font-bold uppercase tracking-widest text-amber-400/90 block mb-2">
+              Endereço de E-mail Oficial
+            </span>
+
+            {/* Email Address Highlight with Copy Button */}
+            <div className="inline-flex flex-wrap items-center justify-center gap-3 bg-[#0d0b09] px-6 py-4 rounded-2xl border border-amber-500/40 shadow-inner max-w-full my-3">
+              <span className="font-mono text-xl sm:text-2xl md:text-3xl font-bold text-amber-300 tracking-tight break-all">
+                {RADIO_CONFIG.contactEmail}
+              </span>
+
+              <button
+                onClick={handleCopyEmail}
+                aria-label="Copiar endereço de e-mail"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs font-bold transition-all cursor-pointer flex-shrink-0"
+              >
+                {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
+                <span>{copied ? "Copiado!" : "Copiar"}</span>
+              </button>
+            </div>
+
+            <p className="text-sm text-stone-400 max-w-xl mx-auto mt-4 font-light leading-relaxed">
+              Clique para copiar o e-mail ou utilize o botão abaixo para abrir diretamente o seu aplicativo de mensagens.
             </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-4 mt-6">
+              <a
+                href={`mailto:${RADIO_CONFIG.contactEmail}`}
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold text-sm shadow-lg shadow-amber-500/25 transition-all hover:scale-105 cursor-pointer"
+              >
+                <Send className="size-4" />
+                <span>Enviar E-mail Agora</span>
+              </a>
+            </div>
           </div>
-        </motion.div>
+
+          {/* Quick Message Composer Form */}
+          <div className="rounded-3xl bg-[#14110e] border border-stone-800/80 p-6 sm:p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="size-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400">
+                <MessageSquare className="size-5" />
+              </div>
+              <div>
+                <h3 className="font-serif text-xl font-bold text-white">
+                  Envie sua Mensagem
+                </h3>
+                <p className="text-xs text-stone-400 font-light">
+                  Preencha os campos e nós abriremos seu e-mail pronto para envio direto a {RADIO_CONFIG.contactEmail}.
+                </p>
+              </div>
+            </div>
+
+            <form onSubmit={handleSendEmail} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-stone-300 mb-1.5">
+                    Seu Nome
+                  </label>
+                  <input
+                    type="text"
+                    value={senderName}
+                    onChange={(e) => setSenderName(e.target.value)}
+                    placeholder="Seu nome completo"
+                    className="w-full px-4 py-3 rounded-xl bg-[#0c0a09] border border-stone-800 focus:border-amber-500 text-stone-100 text-sm placeholder:text-stone-600 focus:outline-none transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-stone-300 mb-1.5">
+                    Assunto
+                  </label>
+                  <input
+                    type="text"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                    placeholder="Ex: Sugestão de Programação / Parceria"
+                    className="w-full px-4 py-3 rounded-xl bg-[#0c0a09] border border-stone-800 focus:border-amber-500 text-stone-100 text-sm placeholder:text-stone-600 focus:outline-none transition-colors"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-stone-300 mb-1.5">
+                  Mensagem
+                </label>
+                <textarea
+                  rows={4}
+                  required
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Escreva sua mensagem com carinho..."
+                  className="w-full px-4 py-3 rounded-xl bg-[#0c0a09] border border-stone-800 focus:border-amber-500 text-stone-100 text-sm placeholder:text-stone-600 focus:outline-none transition-colors resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm shadow-md transition-all cursor-pointer"
+              >
+                <Send className="size-4" />
+                <span>Abrir E-mail e Enviar para {RADIO_CONFIG.contactEmail}</span>
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   );
