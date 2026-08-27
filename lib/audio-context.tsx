@@ -38,10 +38,10 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
   const [error, setError] = useState<string | null>(null);
   const [listenerCount, setListenerCount] = useState(164);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const useDirectFallbackRef = useRef(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      // Subtle natural listener count fluctuation
       setListenerCount((prev) => {
         const delta = Math.floor(Math.random() * 5) - 2;
         return Math.max(130, Math.min(420, prev + delta));
@@ -57,10 +57,11 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
 
     const audio = new Audio();
     audio.preload = "none";
-    audio.src = RADIO_CONFIG.streamUrl;
+    audio.crossOrigin = "anonymous";
     audioRef.current = audio;
 
     const handleWaiting = () => setIsLoading(true);
+    const handleCanPlay = () => setIsLoading(false);
     const handlePlaying = () => {
       setIsLoading(false);
       setIsPlaying(true);
@@ -73,16 +74,29 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
     const handleError = () => {
       setIsLoading(false);
       setIsPlaying(false);
-      setError("Conectando ao sinal da rádio...");
+
+      // If proxy had an issue and not on strict https mixed content, attempt direct stream
+      if (!useDirectFallbackRef.current && window.location.protocol === "http:") {
+        useDirectFallbackRef.current = true;
+        if (audioRef.current) {
+          audioRef.current.src = `${RADIO_CONFIG.directStreamUrl}?t=${Date.now()}`;
+          audioRef.current.play().catch(() => {});
+          return;
+        }
+      }
+
+      setError("Não foi possível conectar ao streaming no momento. Tente novamente.");
     };
 
     audio.addEventListener("waiting", handleWaiting);
+    audio.addEventListener("canplay", handleCanPlay);
     audio.addEventListener("playing", handlePlaying);
     audio.addEventListener("pause", handlePause);
     audio.addEventListener("error", handleError);
 
     return () => {
       audio.removeEventListener("waiting", handleWaiting);
+      audio.removeEventListener("canplay", handleCanPlay);
       audio.removeEventListener("playing", handlePlaying);
       audio.removeEventListener("pause", handlePause);
       audio.removeEventListener("error", handleError);
@@ -96,10 +110,12 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
     setError(null);
     setIsLoading(true);
 
-    const currentSrc = audioRef.current.src;
-    if (!currentSrc || currentSrc === "" || currentSrc.includes("about:blank")) {
-      audioRef.current.src = RADIO_CONFIG.streamUrl;
-    }
+    const targetUrl = useDirectFallbackRef.current
+      ? `${RADIO_CONFIG.directStreamUrl}?t=${Date.now()}`
+      : `${RADIO_CONFIG.streamUrl}?t=${Date.now()}`;
+
+    audioRef.current.src = targetUrl;
+    audioRef.current.load();
 
     const promise = audioRef.current.play();
     if (promise !== undefined) {
@@ -109,10 +125,30 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
           setIsPlaying(true);
         })
         .catch((err) => {
-          console.warn("Playback error:", err);
+          console.warn("Playback error/aborted:", err);
+          // If proxy fails on some browsers, fallback to direct stream
+          if (!useDirectFallbackRef.current) {
+            useDirectFallbackRef.current = true;
+            if (audioRef.current) {
+              audioRef.current.src = `${RADIO_CONFIG.directStreamUrl}?t=${Date.now()}`;
+              audioRef.current
+                .play()
+                .then(() => {
+                  setIsLoading(false);
+                  setIsPlaying(true);
+                  setError(null);
+                })
+                .catch(() => {
+                  setIsLoading(false);
+                  setIsPlaying(false);
+                  setError("Clique novamente para iniciar a transmissão.");
+                });
+              return;
+            }
+          }
           setIsLoading(false);
           setIsPlaying(false);
-          setError("Clique novamente para iniciar a transmissão ao vivo.");
+          setError("Clique novamente para iniciar a transmissão.");
         });
     }
   }, []);
@@ -120,6 +156,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
   const pause = useCallback(() => {
     if (!audioRef.current) return;
     audioRef.current.pause();
+    audioRef.current.src = "";
     setIsPlaying(false);
     setIsLoading(false);
   }, []);
