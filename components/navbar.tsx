@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Radio, Play, Pause, Volume2, Menu, X, Mail, Sparkles, Disc } from "lucide-react";
+import { Play, Pause, Menu, X, Mail, Sparkles, Disc } from "lucide-react";
 import { useAudio } from "@/lib/audio-context";
 import { RADIO_CONFIG } from "@/lib/radio-config";
 
@@ -23,9 +23,9 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Ao Vivo", href: "/#player" },
-    { name: "Programação", href: "/#programacao" },
-    { name: "Gêneros", href: "/#generos" },
-    { name: "Sobre Nós", href: "/#sobre" },
+    { name: "Programação 60s", href: "/#programacao" },
+    { name: "Acervo Jovem Guarda", href: "/#generos" },
+    { name: "O Movimento", href: "/#sobre" },
     { name: "Pedir Música", href: "/#pedir-musica" },
     { name: "Contato", href: "/contato" },
   ];
@@ -34,14 +34,14 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#0c0a09]/90 backdrop-blur-md border-b border-amber-900/30 shadow-2xl py-3"
-          : "bg-gradient-to-b from-[#0c0a09]/95 via-[#0c0a09]/70 to-transparent py-5"
+          ? "bg-[#0c0a09]/95 backdrop-blur-md border-b border-amber-900/30 shadow-2xl py-3"
+          : "bg-gradient-to-b from-[#0c0a09]/98 via-[#0c0a09]/75 to-transparent py-4 sm:py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand / Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative flex items-center justify-center size-11 rounded-full bg-gradient-to-tr from-amber-600 via-amber-500 to-yellow-400 p-[2px] shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+          <div className="relative flex items-center justify-center size-11 sm:size-12 rounded-full bg-gradient-to-tr from-amber-600 via-amber-500 to-yellow-400 p-[2px] shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform flex-shrink-0">
             <div className="size-full bg-[#141210] rounded-full flex items-center justify-center">
               <Disc className={`size-6 text-amber-400 ${isPlaying ? "animate-spin-slow" : "group-hover:rotate-45 transition-transform"}`} />
             </div>
@@ -57,13 +57,13 @@ export function Navbar() {
               <span className="font-serif font-bold text-lg sm:text-xl tracking-tight text-white group-hover:text-amber-300 transition-colors">
                 Rádio Doces Memórias
               </span>
-              <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-red-500/15 text-red-400 border border-red-500/30">
-                <span className="size-1.5 rounded-full bg-red-500 animate-pulse"></span>
-                Ao Vivo
+              <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                <Sparkles className="size-2.5 text-amber-400" />
+                100% Jovem Guarda
               </span>
             </div>
-            <p className="text-[11px] text-amber-200/60 font-medium tracking-wide">
-              {RADIO_CONFIG.slogan}
+            <p className="text-[11px] text-amber-200/70 font-medium tracking-wide">
+              {RADIO_CONFIG.slogan} • &ldquo;É uma brasa, mora!&rdquo;
             </p>
           </div>
         </Link>
@@ -93,7 +93,7 @@ export function Navbar() {
           <button
             onClick={togglePlay}
             aria-label={isPlaying ? "Pausar rádio" : "Ouvir rádio ao vivo"}
-            className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-semibold text-xs tracking-wide shadow-lg shadow-amber-500/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold text-xs tracking-wide shadow-lg shadow-amber-500/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
             {isLoading ? (
               <span className="size-3.5 border-2 border-stone-950 border-t-transparent rounded-full animate-spin"></span>
@@ -145,12 +145,12 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#141210]/98 border-b border-amber-900/30 px-5 pt-3 pb-6 space-y-3 animate-in slide-in-from-top duration-200">
           <div className="flex items-center justify-between pb-3 border-b border-stone-800">
-            <span className="text-xs font-medium text-amber-400/80 uppercase tracking-wider">
-              Menu de Navegação
+            <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">
+              100% Jovem Guarda & Iê-Iê-Iê
             </span>
             <span className="flex items-center gap-1 text-[11px] font-semibold text-red-400 bg-red-500/10 px-2 py-0.5 rounded-full border border-red-500/20">
               <span className="size-1.5 rounded-full bg-red-500 animate-pulse"></span>
-              24h Transmitindo
+              24h no Ar
             </span>
           </div>
 

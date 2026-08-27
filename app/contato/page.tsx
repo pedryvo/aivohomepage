@@ -5,11 +5,11 @@ import { Footer } from "@/components/footer";
 import { FloatingPlayer } from "@/components/player/floating-player";
 import { Contact } from "@/components/sections/contact";
 import { RADIO_CONFIG } from "@/lib/radio-config";
-import { Mail, ArrowLeft, Radio, Disc, Sparkles, MessageCircleQuestion } from "lucide-react";
+import { ArrowLeft, Sparkles, Disc, Flame } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: `Contato | ${RADIO_CONFIG.name}`,
-  description: `Entre em contato com a ${RADIO_CONFIG.name} exclusivamente pelo e-mail ${RADIO_CONFIG.contactEmail}. Envie sugestões, parcerias e pedidos musicais.`,
+  title: `Contato | ${RADIO_CONFIG.name} - 100% Jovem Guarda`,
+  description: `Entre em contato com a ${RADIO_CONFIG.name} exclusivamente pelo e-mail ${RADIO_CONFIG.contactEmail}. Envie sugestões de músicas da Jovem Guarda, parcerias e mensagens aos brotos.`,
 };
 
 export default function ContatoPage() {
@@ -23,10 +23,10 @@ export default function ContatoPage() {
           <div className="mb-6">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-xs font-semibold text-amber-400 hover:text-amber-300 transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 transition-colors"
             >
               <ArrowLeft className="size-3.5" />
-              <span>Voltar para a Página Inicial</span>
+              <span>Voltar para o Player da Jovem Guarda</span>
             </Link>
           </div>
 
@@ -36,29 +36,32 @@ export default function ContatoPage() {
           {/* Additional Info Cards */}
           <div className="max-w-4xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-[#14110e] border border-amber-900/20 rounded-2xl p-6">
-              <h3 className="font-serif font-bold text-white text-base mb-2">
-                🎵 Pedidos Musicais
+              <h3 className="font-serif font-bold text-white text-base mb-2 flex items-center gap-2">
+                <Flame className="size-4 text-orange-400" />
+                <span>Pedidos do Iê-Iê-Iê</span>
               </h3>
               <p className="text-xs text-stone-400 leading-relaxed font-light">
-                Deseja ouvir uma música especial ou mandar um abraço para alguém querido? Envie os detalhes para {RADIO_CONFIG.contactEmail}.
+                Deseja ouvir um clássico do Roberto Carlos, Wanderléa ou The Fevers? Escreva para {RADIO_CONFIG.contactEmail}.
               </p>
             </div>
 
             <div className="bg-[#14110e] border border-amber-900/20 rounded-2xl p-6">
-              <h3 className="font-serif font-bold text-white text-base mb-2">
-                📻 Sugestões de Acervo
+              <h3 className="font-serif font-bold text-white text-base mb-2 flex items-center gap-2">
+                <Disc className="size-4 text-amber-400" />
+                <span>Compactos & LPs Raros</span>
               </h3>
               <p className="text-xs text-stone-400 leading-relaxed font-light">
-                Lembra de uma raridade ou álbum clássico que gostaria de ver na nossa rádio? Envie sua sugestão por e-mail!
+                Possui uma gravação histórica ou raridade da Jovem Guarda dos anos 60? Conte para nós por e-mail!
               </p>
             </div>
 
             <div className="bg-[#14110e] border border-amber-900/20 rounded-2xl p-6">
-              <h3 className="font-serif font-bold text-white text-base mb-2">
-                🤝 Parcerias & Apoio
+              <h3 className="font-serif font-bold text-white text-base mb-2 flex items-center gap-2">
+                <Sparkles className="size-4 text-amber-400" />
+                <span>Parcerias Culturais</span>
               </h3>
               <p className="text-xs text-stone-400 leading-relaxed font-light">
-                Interessado em apoiar a cultura e os grandes clássicos da música? Escreva diretamente para {RADIO_CONFIG.contactEmail}.
+                Projetos culturais e apoios para preservar a memória da música brasileira: escreva para {RADIO_CONFIG.contactEmail}.
               </p>
             </div>
           </div>

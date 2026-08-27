@@ -21,23 +21,28 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://radiodocessmemorias.com.br"),
-  title: "Rádio Doces Memórias | A Trilha Sonora da Sua Vida - Grandes Clássicos e Flashbacks",
+  title: "Rádio Doces Memórias | A Casa da Jovem Guarda & do Iê-Iê-Iê",
   description:
-    "Ouça a Rádio Doces Memórias ao vivo! Os maiores sucessos dos anos 60, 70, 80 e 90, o melhor da MPB, baladas românticas e músicas inesquecíveis. 24 horas no ar.",
+    "Ouça a Rádio Doces Memórias ao vivo! A rádio 100% dedicada à Jovem Guarda no Brasil: Roberto Carlos, Erasmo Carlos, Wanderléa, The Fevers, Renato e Seus Blue Caps, Ronnie Von, Golden Boys e os maiores sucessos dos anos 60. É uma brasa, mora!",
   keywords: [
+    "Jovem Guarda",
+    "Rádio Jovem Guarda",
     "Rádio Doces Memórias",
-    "Web Rádio",
-    "Músicas Antigas",
-    "Flashback",
-    "MPB",
-    "Bossa Nova",
-    "Anos 70",
-    "Anos 80",
-    "Anos 90",
-    "Rádio Online",
-    "Músicas Românticas",
-    "Rádio Web Ao Vivo",
-    "Doces Memórias",
+    "Iê-Iê-Iê",
+    "Roberto Carlos Anos 60",
+    "Erasmo Carlos Tremendão",
+    "Wanderléa Ternurinha",
+    "Renato e Seus Blue Caps",
+    "The Fevers",
+    "Golden Boys",
+    "Os Incríveis",
+    "Ronnie Von",
+    "Jerry Adriani",
+    "Eduardo Araújo",
+    "Cely Campello",
+    "Leno e Lílian",
+    "Rock Brasileiro Anos 60",
+    "É uma brasa mora",
   ],
   authors: [{ name: "Rádio Doces Memórias" }],
   creator: "Rádio Doces Memórias",
@@ -47,9 +52,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Rádio Doces Memórias | A Trilha Sonora da Sua Vida",
+    title: "Rádio Doces Memórias | A Casa da Jovem Guarda & do Iê-Iê-Iê",
     description:
-      "Reviva os melhores momentos com os grandes clássicos inesquecíveis dos anos 60, 70, 80, 90 e MPB. Transmissão 24h em alta qualidade.",
+      "É uma brasa, mora! Transmissão 24 horas dos maiores clássicos da Jovem Guarda brasileira: Roberto, Erasmo, Wanderléa, The Fevers, Blue Caps e muito mais.",
     url: "https://radiodocessmemorias.com.br",
     siteName: RADIO_CONFIG.name,
     locale: "pt_BR",
@@ -57,9 +62,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rádio Doces Memórias | Ao Vivo 24 Horas",
+    title: "Rádio Doces Memórias | 100% Jovem Guarda",
     description:
-      "A melhor seleção de flashbacks, MPB de ouro e músicas românticas inesquecíveis.",
+      "A rádio dedicada ao movimento da Jovem Guarda brasileira. Os grandes sucessos dos anos 60 ao vivo 24 horas.",
   },
 };
 

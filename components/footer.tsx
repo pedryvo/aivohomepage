@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Radio, Disc, Mail, Heart, Sparkles, ArrowUp, Signal } from "lucide-react";
+import { Disc, Mail, ArrowUp, Signal, Flame } from "lucide-react";
 import { RADIO_CONFIG } from "@/lib/radio-config";
 
 export function Footer() {
@@ -28,12 +28,12 @@ export function Footer() {
             </Link>
 
             <p className="text-stone-400 text-sm leading-relaxed font-light max-w-md">
-              Uma rádio dedicada a resgatar os grandes momentos da música mundial e nacional. Aconchego, nostalgia e emoção 24 horas por dia em transmissão digital de alta qualidade.
+              A rádio web 100% dedicada ao movimento da Jovem Guarda no Brasil. O Iê-Iê-Iê, as guitarras elétricas, as baladas da TV Record e os grandes bailes dos anos 60 em transmissão contínua.
             </p>
 
             <div className="flex items-center gap-2 text-xs text-amber-400/90 bg-amber-950/30 px-3 py-1.5 rounded-xl border border-amber-900/40 w-fit">
               <Signal className="size-3.5 text-amber-400" />
-              <span>Transmissão Contínua • {RADIO_CONFIG.bitrate}</span>
+              <span>Transmissão 24h • Jovem Guarda HD</span>
             </div>
           </div>
 
@@ -50,17 +50,17 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/#programacao" className="text-stone-400 hover:text-amber-300 transition-colors">
-                  Grade de Programação
+                  Grade de Programação 60s
                 </Link>
               </li>
               <li>
                 <Link href="/#generos" className="text-stone-400 hover:text-amber-300 transition-colors">
-                  Curadoria & Estilos
+                  Pilares da Jovem Guarda
                 </Link>
               </li>
               <li>
                 <Link href="/#sobre" className="text-stone-400 hover:text-amber-300 transition-colors">
-                  Sobre a Rádio
+                  História do Movimento
                 </Link>
               </li>
               <li>
@@ -82,7 +82,7 @@ export function Footer() {
               Contato Oficial
             </h4>
             <p className="text-xs text-stone-400 font-light">
-              Para sugestões, dúvidas, mensagens aos ouvintes e parcerias, envie um e-mail para:
+              Para sugestões de faixas da Jovem Guarda, mensagens de ouvintes e parcerias, envie um e-mail para:
             </p>
 
             <a
@@ -106,8 +106,8 @@ export function Footer() {
           </p>
 
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1 text-stone-400">
-              Feito com carinho para os amantes da boa música
+            <span className="flex items-center gap-1 text-amber-400 font-medium">
+              &ldquo;É uma brasa, mora!&rdquo;
             </span>
             <button
               onClick={scrollToTop}

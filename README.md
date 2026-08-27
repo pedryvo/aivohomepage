@@ -1,42 +1,42 @@
-# Rádio Doces Memórias 📻✨
+# Rádio Doces Memórias 📻🔥
 
-Landing page oficial da **Rádio Doces Memórias** — "A Trilha Sonora da Sua Vida". Uma web rádio dedicada a resgatar os grandes sucessos do passado: flashbacks inesquecíveis (anos 60, 70, 80 e 90), o melhor da MPB de raiz, Bossa Nova, boleros e baladas românticas.
+Landing page oficial da **Rádio Doces Memórias** — "A Casa da Jovem Guarda & do Iê-Iê-Iê". Uma web rádio 100% dedicada ao maior movimento jovem e musical dos anos 1960 no Brasil: Roberto Carlos, Erasmo Carlos, Wanderléa, Renato e Seus Blue Caps, The Fevers, Os Incríveis, Golden Boys, Ronnie Von, Jerry Adriani e todos os grandes nomes da TV Record e dos bailes da época.
 
 ---
 
 ## 📻 Funcionalidades Principais
 
 - **Player de Áudio Ao Vivo Integrado:**
-  - Player principal no topo com disco de vinil animado, equalizador de frequências e VU meter.
-  - Player flutuante (dock) que acompanha a rolagem da página para ouvir sem interrupções.
+  - Player principal com disco de vinil temático da Jovem Guarda, equalizador de frequências e VU meter.
+  - Player flutuante (dock) para escutar sem interrupções durante toda a navegação.
   - Controle de volume com slider e botão de mudo.
-  - Indicador de transmissão "AO VIVO" em tempo real e contagem de ouvintes.
-  - Identificação dinâmica do programa em exibição com base no horário atual.
+  - Indicador de transmissão "AO VIVO" e contagem de ouvintes.
+  - Identificação dinâmica do programa da Jovem Guarda que está no ar.
 - **Configuração Simples de Streaming:**
   - Arquivo central de configuração em `lib/radio-config.ts` onde basta alterar a constante `STREAM_URL` com o endereço do streaming.
-- **Curadoria Sonora & Gêneros:**
-  - Seções temáticas: Flashback Internacional, Panteão da MPB, Baladas & Boleros e Temas de Cinema & Novelas.
-- **Grade de Programação 24 Horas:**
-  - Programação diária completa com destaque automático para a atração que está no ar.
-- **Peça Sua Música & Dedicatórias:**
-  - Formulário interativo para pedidos de músicas e homenagens via e-mail.
+- **Pilares da Jovem Guarda:**
+  - O Trio de Ouro (Roberto, Erasmo e Wanderléa), Conjuntos dos Bailes (The Fevers, Blue Caps, Os Incríveis), Ídolos e Musas (Ronnie Von, Jerry Adriani, Martinha, Vanusa) e Duplas Históricas (Leno & Lílian, Os Vips, Deny & Dino).
+- **Grade 24 Horas:**
+  - Programação temática ininterrupta com destaque automático para o programa atual.
+- **Peça Seu Clássico da Jovem Guarda:**
+  - Formulário para pedidos musicais e dedicatórias com envio rápido.
 - **Página de Contato & Canal Oficial:**
-  - Atendimento e contato exclusivo via e-mail: **pedryvo@gmail.com** com botão de cópia com 1 clique e envio rápido.
+  - Atendimento e contato exclusivo via e-mail: **pedryvo@gmail.com** com botão de cópia rápida.
 - **Design Vintage-Moderno:**
-  - Estética luxuosa e nostálgica em tons de âmbar, dourado e vinil escuro, com tipografia refinada e responsividade total.
+  - Estética refinada com visual de vinil, botões clássicos, tipografia elegante e responsividade total.
 
 ---
 
 ## 🛠️ Como Configurar o Endereço de Streaming
 
-Para definir ou atualizar a URL da transmissão ao vivo da rádio:
+Para definir ou atualizar a URL da transmissão ao vivo:
 
 1. Abra o arquivo [`lib/radio-config.ts`](./lib/radio-config.ts).
 2. Modifique a constante `STREAM_URL`:
    ```typescript
-   export const STREAM_URL = "https://seu-servidor-de-streaming.com/live.mp3";
+   export const STREAM_URL = "https://seu-servidor-de-streaming.com/jovem-guarda.mp3";
    ```
-3. Salve o arquivo. Todas as páginas e players da rádio serão atualizados automaticamente!
+3. Salve o arquivo. O player de áudio atualizará automaticamente!
 
 ---
 
@@ -72,4 +72,4 @@ Para definir ou atualizar a URL da transmissão ao vivo da rádio:
 
 ---
 
-© 2026 Rádio Doces Memórias. Todos os direitos reservados.
+© 2026 Rádio Doces Memórias • *"É uma brasa, mora!"*

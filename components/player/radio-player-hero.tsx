@@ -18,6 +18,7 @@ import {
   Disc3,
   Headphones,
   Signal,
+  Flame,
 } from "lucide-react";
 import { useAudio } from "@/lib/audio-context";
 import { RADIO_CONFIG } from "@/lib/radio-config";
@@ -43,8 +44,8 @@ export function RadioPlayerHero() {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "Rádio Doces Memórias",
-          text: "Estou ouvindo a Rádio Doces Memórias! A melhor seleção de clássicos e flashbacks.",
+          title: "Rádio Doces Memórias - 100% Jovem Guarda",
+          text: "É uma brasa, mora! Estou ouvindo a Rádio Doces Memórias, a rádio oficial da Jovem Guarda e do Iê-Iê-Iê!",
           url: window.location.href,
         });
       } catch {
@@ -66,7 +67,7 @@ export function RadioPlayerHero() {
   return (
     <section
       id="player"
-      className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-[#0c0a09] via-[#14110e] to-[#0c0a09]"
+      className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-[#0c0a09] via-[#15110d] to-[#0c0a09]"
     >
       {/* Background ambient lighting effects */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[450px] bg-amber-500/10 rounded-full blur-[130px] pointer-events-none -z-10" />
@@ -76,9 +77,9 @@ export function RadioPlayerHero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Title Section */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-5 shadow-sm">
-            <Sparkles className="size-3.5 text-amber-400" />
-            <span>Grandes Clássicos • MPB • Flashback • Românticas</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider mb-5 shadow-sm">
+            <Flame className="size-3.5 text-orange-400 fill-orange-400" />
+            <span>&ldquo;É uma brasa, mora!&rdquo; • 100% Jovem Guarda Brasileira</span>
           </div>
 
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
@@ -86,7 +87,7 @@ export function RadioPlayerHero() {
           </h1>
 
           <p className="mt-4 text-base sm:text-lg lg:text-xl text-stone-300 font-light leading-relaxed">
-            A trilha sonora que marcou sua história. Reviva emoções inesquecíveis através das mais belas canções de todos os tempos.
+            A era de ouro do rock brasileiro e do Iê-Iê-Iê. Reviva a magia da TV Record, o Calhambeque, a Ternurinha, o Tremendão e os lendários bailes dos anos 60.
           </p>
         </div>
 
@@ -102,7 +103,7 @@ export function RadioPlayerHero() {
                     No Ar • Ao Vivo
                   </span>
                 </div>
-                <span className="text-xs font-medium text-stone-400 hidden sm:inline-block">
+                <span className="text-xs font-semibold text-amber-400/90 hidden sm:inline-block">
                   {RADIO_CONFIG.frequencyLabel}
                 </span>
               </div>
@@ -114,7 +115,7 @@ export function RadioPlayerHero() {
                 </div>
                 <div className="flex items-center gap-1.5 text-stone-300">
                   <Users className="size-3.5 text-amber-400" />
-                  <span>{listenerCount} ouvintes agora</span>
+                  <span>{listenerCount} brotos sintonizados</span>
                 </div>
               </div>
             </div>
@@ -138,11 +139,11 @@ export function RadioPlayerHero() {
                           <div className="size-20 sm:size-24 rounded-full bg-gradient-to-tr from-amber-700 via-amber-600 to-yellow-500 p-1 flex items-center justify-center shadow-lg">
                             <div className="size-full bg-[#16120e] rounded-full flex flex-col items-center justify-center text-center p-1 border border-amber-400/40">
                               <Radio className="size-4 sm:size-5 text-amber-400 mb-0.5" />
-                              <span className="font-serif text-[9px] sm:text-[10px] font-bold text-amber-200 tracking-tighter leading-none">
-                                DOCES
+                              <span className="font-serif text-[8px] sm:text-[9px] font-extrabold text-amber-300 tracking-wider leading-none">
+                                JOVEM GUARDA
                               </span>
-                              <span className="font-serif text-[8px] sm:text-[9px] font-medium text-amber-300/80 tracking-widest uppercase">
-                                Memórias
+                              <span className="font-serif text-[7px] sm:text-[8px] font-medium text-amber-200/80 uppercase">
+                                Doces Memórias
                               </span>
                               {/* Center Spindle Hole */}
                               <div className="size-2 rounded-full bg-[#0c0a09] mt-1 border border-stone-600"></div>
@@ -164,8 +165,8 @@ export function RadioPlayerHero() {
               <div className="md:col-span-7 space-y-6 text-left">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-md border border-amber-500/20">
-                      Programa Atual ({currentProgram.time})
+                    <span className="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-md border border-amber-500/20">
+                      Programa no Ar ({currentProgram.time})
                     </span>
                   </div>
                   <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
@@ -179,7 +180,7 @@ export function RadioPlayerHero() {
                     {currentProgram.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-stone-800/80 text-stone-300 border border-stone-700/50"
+                        className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-stone-800/80 text-amber-200/90 border border-amber-900/30"
                       >
                         #{tag}
                       </span>
@@ -192,10 +193,10 @@ export function RadioPlayerHero() {
                   <div className="flex items-center justify-between text-xs text-stone-400">
                     <span className="flex items-center gap-1.5">
                       <Headphones className="size-3.5 text-amber-400" />
-                      <span>{isPlaying ? "Transmitindo Áudio HD" : "Pronto para tocar"}</span>
+                      <span>{isPlaying ? "Transmitindo o Melhor do Iê-Iê-Iê" : "Pronto para tocar"}</span>
                     </span>
                     <span className="text-amber-400/80 font-mono text-[11px]">
-                      {isPlaying ? "STATUS: STREAMING" : "STATUS: PAUSADO"}
+                      {isPlaying ? "STATUS: NO AR (HD)" : "STATUS: PAUSADO"}
                     </span>
                   </div>
 
@@ -232,7 +233,7 @@ export function RadioPlayerHero() {
                   {/* Big Play / Pause Button */}
                   <button
                     onClick={togglePlay}
-                    aria-label={isPlaying ? "Pausar rádio" : "Tocar rádio ao vivo"}
+                    aria-label={isPlaying ? "Pausar rádio" : "Tocar rádio da Jovem Guarda"}
                     className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-stone-950 font-bold text-base shadow-xl shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer group"
                   >
                     {isLoading ? (
@@ -242,7 +243,7 @@ export function RadioPlayerHero() {
                     ) : (
                       <Play className="size-6 fill-current text-stone-950 ml-1 group-hover:scale-110 transition-transform" />
                     )}
-                    <span>{isPlaying ? "PAUSAR TRANSMISSÃO" : "OUVIR AO VIVO"}</span>
+                    <span>{isPlaying ? "PAUSAR TRANSMISSÃO" : "OUVIR JOVEM GUARDA"}</span>
                   </button>
 
                   {/* Volume Control Bar */}
@@ -284,7 +285,7 @@ export function RadioPlayerHero() {
                   }`}
                 >
                   <Heart className={`size-3.5 ${liked ? "fill-rose-400 text-rose-400" : ""}`} />
-                  <span>{liked ? "Adorado!" : "Curtir Rádio"}</span>
+                  <span>{liked ? "Amor de Broto!" : "Curtir a Rádio"}</span>
                 </button>
 
                 <button
@@ -302,7 +303,7 @@ export function RadioPlayerHero() {
                   className="flex items-center gap-1.5 text-xs text-amber-300 hover:text-amber-200 font-semibold hover:underline"
                 >
                   <Music className="size-3.5" />
-                  <span>Pedir uma Música</span>
+                  <span>Pedir um Sucesso dos Anos 60</span>
                 </Link>
                 <span className="text-stone-700">•</span>
                 <Link
@@ -319,10 +320,10 @@ export function RadioPlayerHero() {
         {/* Feature Highlights beneath Player */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-8">
           {[
-            { title: "24h Sem Parar", desc: "Transmissão ininterrupta todos os dias", icon: Disc3 },
-            { title: "Áudio HD", desc: "Som cristalino de alta fidelidade", icon: Signal },
-            { title: "Acervo Histórico", desc: "Os maiores sucessos da era de ouro", icon: Sparkles },
-            { title: "Contato Direto", desc: RADIO_CONFIG.contactEmail, icon: Heart },
+            { title: "O Trio Sagrado", desc: "Roberto, Erasmo e Wanderléa", icon: Sparkles },
+            { title: "Bailes dos Anos 60", desc: "The Fevers, Blue Caps & Os Incríveis", icon: Disc3 },
+            { title: "Acervo Histórico", desc: "Compactos e LPs originais", icon: Flame },
+            { title: "Contato Oficial", desc: RADIO_CONFIG.contactEmail, icon: Heart },
           ].map((feat) => {
             const Icon = feat.icon;
             return (

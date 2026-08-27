@@ -16,8 +16,8 @@ export default function Home() {
     name: RADIO_CONFIG.name,
     url: "https://radiodocessmemorias.com.br",
     description:
-      "Rádio Web Doces Memórias - Os grandes sucessos do passado em um só lugar. Flashback 70s, 80s, 90s, MPB de raiz e baladas românticas inesquecíveis.",
-    genre: ["Flashback", "MPB", "Romantic", "Oldies", "Bossa Nova"],
+      "Rádio Doces Memórias - 100% Jovem Guarda e Iê-Iê-Iê. Os maiores sucessos de Roberto Carlos, Erasmo Carlos, Wanderléa, The Fevers, Renato e Seus Blue Caps, Ronnie Von e os ídolos dos anos 60.",
+    genre: ["Jovem Guarda", "Iê-Iê-Iê", "Rock Brasileiro Anos 60", "Baladas 60s"],
     email: RADIO_CONFIG.contactEmail,
     broadcastDisplayName: RADIO_CONFIG.name,
     broadcastFrequency: RADIO_CONFIG.frequencyLabel,

@@ -14,6 +14,7 @@ import {
   Heart,
   Coffee,
   Disc,
+  Flame,
 } from "lucide-react";
 
 export function Schedule() {
@@ -34,7 +35,7 @@ export function Schedule() {
       case "Sparkles":
         return Sparkles;
       default:
-        return Radio;
+        return Flame;
     }
   };
 
@@ -46,15 +47,15 @@ export function Schedule() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
             <Clock className="size-3.5" />
-            <span>Grade Semanal & Diária</span>
+            <span>Grade Diária 24 Horas</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-            Programação 24 Horas
+            Programação Jovem Guarda
           </h2>
-          <p className="mt-4 text-stone-400 text-base sm:text-lg font-light">
-            Acompanhe nossa grade contínua de atrações, cuidadosamente pensada para cada momento do seu dia e da sua noite.
+          <p className="mt-4 text-stone-400 text-base sm:text-lg font-light leading-relaxed">
+            Uma viagem no tempo sem intervalos comerciais. Sintonize as melhores atrações temáticas dedicadas ao Iê-Iê-Iê.
           </p>
         </div>
 
@@ -111,7 +112,7 @@ export function Schedule() {
                         {item.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-900/80 text-stone-400 border border-stone-800"
+                            className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-900/80 text-amber-200/80 border border-amber-950/40"
                           >
                             {tag}
                           </span>

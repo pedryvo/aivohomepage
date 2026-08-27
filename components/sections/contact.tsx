@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, Copy, Check, Send, Sparkles, MessageSquare, Radio, Heart } from "lucide-react";
+import { Mail, Copy, Check, Send, Sparkles, MessageSquare, Radio, Heart, Flame } from "lucide-react";
 import { RADIO_CONFIG } from "@/lib/radio-config";
 
 export function Contact() {
@@ -19,13 +19,13 @@ export function Contact() {
   const handleSendEmail = (e: React.FormEvent) => {
     e.preventDefault();
     const mailSubject = encodeURIComponent(
-      subject || `[Contato] Rádio Doces Memórias - ${senderName || "Ouvinte"}`
+      subject || `[Contato Jovem Guarda] Rádio Doces Memórias - ${senderName || "Ouvinte"}`
     );
     const mailBody = encodeURIComponent(
-      `Olá, equipe da Rádio Doces Memórias!\n\n` +
+      `Olá, equipe da Rádio Doces Memórias (Jovem Guarda)!\n\n` +
       `Nome: ${senderName || "Não informado"}\n\n` +
-      `Mensagem:\n${message || "Olá, gostaria de entrar em contato com a rádio."}\n\n` +
-      `Enviado através da página de contato.`
+      `Mensagem:\n${message || "Olá, gostaria de entrar em contato com a rádio da Jovem Guarda."}\n\n` +
+      `É uma brasa, mora!`
     );
     window.location.href = `mailto:${RADIO_CONFIG.contactEmail}?subject=${mailSubject}&body=${mailBody}`;
   };
@@ -38,15 +38,15 @@ export function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
             <Mail className="size-3.5" />
             <span>Canal Oficial de Atendimento</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-            Fale Conosco
+            Fale com a Rádio da Jovem Guarda
           </h2>
-          <p className="mt-4 text-stone-400 text-base sm:text-lg font-light">
-            Dúvidas, sugestões, parcerias ou homenagens? Nosso canal oficial de contato é exclusivamente pelo e-mail abaixo.
+          <p className="mt-4 text-stone-400 text-base sm:text-lg font-light leading-relaxed">
+            Dúvidas, sugestões de compactos da Jovem Guarda, mensagens de brotos e parcerias culturais. Nosso contato é exclusivo pelo e-mail abaixo.
           </p>
         </div>
 
@@ -90,7 +90,7 @@ export function Contact() {
                 className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold text-sm shadow-lg shadow-amber-500/25 transition-all hover:scale-105 cursor-pointer"
               >
                 <Send className="size-4" />
-                <span>Enviar E-mail Agora</span>
+                <span>Enviar E-mail Agora ({RADIO_CONFIG.contactEmail})</span>
               </a>
             </div>
           </div>
@@ -103,7 +103,7 @@ export function Contact() {
               </div>
               <div>
                 <h3 className="font-serif text-xl font-bold text-white">
-                  Envie sua Mensagem
+                  Envie sua Mensagem de Broto
                 </h3>
                 <p className="text-xs text-stone-400 font-light">
                   Preencha os campos e nós abriremos seu e-mail pronto para envio direto a {RADIO_CONFIG.contactEmail}.
@@ -134,7 +134,7 @@ export function Contact() {
                     type="text"
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
-                    placeholder="Ex: Sugestão de Programação / Parceria"
+                    placeholder="Ex: Sugestão de Compacto Raro / Mensagem aos Ouvintes"
                     className="w-full px-4 py-3 rounded-xl bg-[#0c0a09] border border-stone-800 focus:border-amber-500 text-stone-100 text-sm placeholder:text-stone-600 focus:outline-none transition-colors"
                   />
                 </div>
@@ -149,7 +149,7 @@ export function Contact() {
                   required
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Escreva sua mensagem com carinho..."
+                  placeholder="Escreva sua mensagem com carinho sobre a Jovem Guarda..."
                   className="w-full px-4 py-3 rounded-xl bg-[#0c0a09] border border-stone-800 focus:border-amber-500 text-stone-100 text-sm placeholder:text-stone-600 focus:outline-none transition-colors resize-none"
                 />
               </div>

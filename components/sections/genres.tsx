@@ -2,7 +2,7 @@
 
 import React from "react";
 import { GENRE_HIGHLIGHTS } from "@/lib/radio-config";
-import { Disc, Music, Sparkles, Play } from "lucide-react";
+import { Music, Sparkles, Play, Flame, Disc } from "lucide-react";
 import { useAudio } from "@/lib/audio-context";
 
 export function Genres() {
@@ -13,15 +13,15 @@ export function Genres() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4">
-            <Music className="size-3.5" />
-            <span>Acervo Musical Exclusivo</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
+            <Flame className="size-3.5 text-orange-400 fill-orange-400" />
+            <span>O Fenômeno Musical dos Anos 60</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-            Nossa Curadoria Sonora
+            Os Pilares da Jovem Guarda
           </h2>
-          <p className="mt-4 text-stone-400 text-base sm:text-lg font-light">
-            Uma seleção refinada que valoriza os maiores compositores, arranjadores e intérpretes que construíram a história da música.
+          <p className="mt-4 text-stone-400 text-base sm:text-lg font-light leading-relaxed">
+            Das tardes históricas no Teatro Record aos bailes de garagem que sacudiram a juventude brasileira. Conheça as vertentes do nosso acervo.
           </p>
         </div>
 
@@ -59,15 +59,15 @@ export function Genres() {
 
                 {/* Artists list */}
                 <div>
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-2.5 flex items-center gap-1.5">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400/90 mb-2.5 flex items-center gap-1.5">
                     <Sparkles className="size-3 text-amber-400" />
-                    <span>Artistas em Destaque:</span>
+                    <span>Ídolos & Bandas Imortais:</span>
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {genre.artists.map((artist) => (
                       <span
                         key={artist}
-                        className="text-xs px-3 py-1 rounded-xl bg-stone-900/90 text-stone-200 border border-stone-800 group-hover:border-amber-900/40 transition-colors"
+                        className="text-xs px-3 py-1 rounded-xl bg-stone-900/90 text-amber-100 border border-stone-800 group-hover:border-amber-900/40 transition-colors font-medium"
                       >
                         {artist}
                       </span>
@@ -78,14 +78,14 @@ export function Genres() {
                 {/* Bottom Card Action */}
                 <div className="pt-3 border-t border-stone-800/80 flex items-center justify-between">
                   <span className="text-xs text-stone-400 font-medium">
-                    24h na programação diária
+                    Sucessos que marcaram época
                   </span>
                   <button
                     onClick={togglePlay}
-                    className="flex items-center gap-1.5 text-xs font-semibold text-amber-400 group-hover:text-amber-300 transition-colors cursor-pointer"
+                    className="flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:text-amber-300 transition-colors cursor-pointer"
                   >
                     <Play className="size-3.5 fill-current" />
-                    <span>{isPlaying ? "Tocando Agora" : "Ouvir Estilo"}</span>
+                    <span>{isPlaying ? "Tocando no Ar" : "Sintonizar no Player"}</span>
                   </button>
                 </div>
               </div>
