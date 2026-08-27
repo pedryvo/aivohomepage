@@ -23,11 +23,8 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Ao Vivo", href: "/#player" },
-    { name: "Programação 60s", href: "/#programacao" },
-    { name: "Acervo Jovem Guarda", href: "/#generos" },
-    { name: "O Movimento", href: "/#sobre" },
-    { name: "Pedir Música", href: "/#pedir-musica" },
-    { name: "Contato", href: "/contato" },
+    { name: "Sobre a Rádio", href: "/#sobre" },
+    { name: "Contato & Pedidos", href: "/contato" },
   ];
 
   return (
@@ -38,38 +35,38 @@ export function Navbar() {
           : "bg-gradient-to-b from-[#0c0a09]/98 via-[#0c0a09]/75 to-transparent py-4 sm:py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand / Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative flex items-center justify-center size-11 sm:size-12 rounded-full bg-gradient-to-tr from-amber-600 via-amber-500 to-yellow-400 p-[2px] shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform flex-shrink-0">
+          <div className="relative flex items-center justify-center size-10 sm:size-11 rounded-full bg-gradient-to-tr from-amber-600 via-amber-500 to-yellow-400 p-[2px] shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform flex-shrink-0">
             <div className="size-full bg-[#141210] rounded-full flex items-center justify-center">
-              <Disc className={`size-6 text-amber-400 ${isPlaying ? "animate-spin-slow" : "group-hover:rotate-45 transition-transform"}`} />
+              <Disc className={`size-5 sm:size-6 text-amber-400 ${isPlaying ? "animate-spin-slow" : "group-hover:rotate-45 transition-transform"}`} />
             </div>
             {isPlaying && (
-              <span className="absolute -top-0.5 -right-0.5 flex size-3.5">
+              <span className="absolute -top-0.5 -right-0.5 flex size-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full size-3.5 bg-red-500 border-2 border-[#0c0a09]"></span>
+                <span className="relative inline-flex rounded-full size-3 bg-red-500 border-2 border-[#0c0a09]"></span>
               </span>
             )}
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-serif font-bold text-lg sm:text-xl tracking-tight text-white group-hover:text-amber-300 transition-colors">
+              <span className="font-serif font-bold text-base sm:text-lg tracking-tight text-white group-hover:text-amber-300 transition-colors">
                 Rádio Doces Memórias
               </span>
               <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30">
                 <Sparkles className="size-2.5 text-amber-400" />
-                100% Jovem Guarda
+                Jovem Guarda
               </span>
             </div>
             <p className="text-[11px] text-amber-200/70 font-medium tracking-wide">
-              {RADIO_CONFIG.slogan} • &ldquo;É uma brasa, mora!&rdquo;
+              {RADIO_CONFIG.slogan}
             </p>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+        <nav className="hidden md:flex items-center gap-2">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -93,7 +90,7 @@ export function Navbar() {
           <button
             onClick={togglePlay}
             aria-label={isPlaying ? "Pausar rádio" : "Ouvir rádio ao vivo"}
-            className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold text-xs tracking-wide shadow-lg shadow-amber-500/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold text-xs tracking-wide shadow-lg shadow-amber-500/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
             {isLoading ? (
               <span className="size-3.5 border-2 border-stone-950 border-t-transparent rounded-full animate-spin"></span>
@@ -102,7 +99,7 @@ export function Navbar() {
             ) : (
               <Play className="size-3.5 fill-current ml-0.5" />
             )}
-            <span>{isPlaying ? "Pausar" : "Ouvir Agora"}</span>
+            <span>{isPlaying ? "Pausar" : "Ouvir"}</span>
             {isPlaying && (
               <div className="flex items-end gap-0.5 h-3 ml-0.5">
                 <span className="w-0.5 bg-stone-950 rounded-full eq-bar-1"></span>
@@ -118,7 +115,7 @@ export function Navbar() {
             className="flex items-center gap-1.5 px-3 py-2 rounded-full bg-stone-900/80 hover:bg-stone-800 text-stone-300 hover:text-amber-300 border border-stone-800 hover:border-amber-500/30 text-xs font-medium transition-all"
           >
             <Mail className="size-3.5 text-amber-400" />
-            <span>Contato</span>
+            <span>{RADIO_CONFIG.contactEmail}</span>
           </Link>
         </div>
 
@@ -146,9 +143,9 @@ export function Navbar() {
         <div className="md:hidden bg-[#141210]/98 border-b border-amber-900/30 px-5 pt-3 pb-6 space-y-3 animate-in slide-in-from-top duration-200">
           <div className="flex items-center justify-between pb-3 border-b border-stone-800">
             <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">
-              100% Jovem Guarda & Iê-Iê-Iê
+              Menu
             </span>
-            <span className="flex items-center gap-1 text-[11px] font-semibold text-red-400 bg-red-500/10 px-2 py-0.5 rounded-full border border-red-500/20">
+            <span className="text-xs text-red-400 font-semibold flex items-center gap-1">
               <span className="size-1.5 rounded-full bg-red-500 animate-pulse"></span>
               24h no Ar
             </span>

@@ -1,18 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import {
   Play,
   Pause,
   Volume2,
   VolumeX,
   Volume1,
-  Radio,
   X,
-  ChevronUp,
-  ChevronDown,
-  Mail,
   Disc,
 } from "lucide-react";
 import { useAudio } from "@/lib/audio-context";
@@ -24,18 +19,16 @@ export function FloatingPlayer() {
     isLoading,
     isMuted,
     volume,
-    currentProgram,
+    programTitle,
     togglePlay,
     setVolume,
     toggleMute,
   } = useAudio();
 
   const [visible, setVisible] = useState(false);
-  const [minimized, setMinimized] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show floating player when scrolled past 400px
       if (window.scrollY > 380) {
         setVisible(true);
       } else {
@@ -79,7 +72,7 @@ export function FloatingPlayer() {
                 </span>
               </div>
               <p className="text-[11px] text-amber-200/80 truncate font-medium">
-                {currentProgram.title}
+                {programTitle}
               </p>
             </div>
           </div>

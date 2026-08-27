@@ -12,13 +12,12 @@ import {
   Share2,
   Heart,
   Music,
-  Sparkles,
   Users,
   Check,
-  Disc3,
   Headphones,
   Signal,
   Flame,
+  Mail,
 } from "lucide-react";
 import { useAudio } from "@/lib/audio-context";
 import { RADIO_CONFIG } from "@/lib/radio-config";
@@ -30,7 +29,8 @@ export function RadioPlayerHero() {
     isMuted,
     volume,
     error,
-    currentProgram,
+    programTitle,
+    programDescription,
     togglePlay,
     setVolume,
     toggleMute,
@@ -67,14 +67,14 @@ export function RadioPlayerHero() {
   return (
     <section
       id="player"
-      className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-[#0c0a09] via-[#15110d] to-[#0c0a09]"
+      className="relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-gradient-to-b from-[#0c0a09] via-[#15110d] to-[#0c0a09]"
     >
       {/* Background ambient lighting effects */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[450px] bg-amber-500/10 rounded-full blur-[130px] pointer-events-none -z-10" />
       <div className="absolute top-1/3 left-10 w-[300px] h-[300px] bg-orange-600/10 rounded-full blur-[100px] pointer-events-none -z-10" />
       <div className="absolute top-1/2 right-10 w-[350px] h-[350px] bg-amber-700/10 rounded-full blur-[110px] pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Partner Banner Radios.com.br */}
         <div className="flex flex-col items-center justify-center mb-6">
           <a
@@ -100,18 +100,18 @@ export function RadioPlayerHero() {
         </div>
 
         {/* Header Title Section */}
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider mb-5 shadow-sm">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
             <Flame className="size-3.5 text-orange-400 fill-orange-400" />
-            <span>&ldquo;É uma brasa, mora!&rdquo; • 100% Jovem Guarda Brasileira</span>
+            <span>&ldquo;É uma brasa, mora!&rdquo; • 100% Jovem Guarda</span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
             Rádio <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-500">Doces Memórias</span>
           </h1>
 
-          <p className="mt-4 text-base sm:text-lg lg:text-xl text-stone-300 font-light leading-relaxed">
-            A era de ouro do rock brasileiro e do Iê-Iê-Iê. Reviva a magia da TV Record, o Calhambeque, a Ternurinha, o Tremendão e os lendários bailes dos anos 60.
+          <p className="mt-3 text-sm sm:text-base lg:text-lg text-stone-300 font-light leading-relaxed max-w-2xl mx-auto">
+            A trilha sonora da era de ouro do rock brasileiro. O melhor do Iê-Iê-Iê, Roberto, Erasmo, Wanderléa e os bailes dos anos 60 ao vivo 24 horas por dia.
           </p>
         </div>
 
@@ -124,7 +124,7 @@ export function RadioPlayerHero() {
                 <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/15 border border-red-500/30">
                   <span className="size-2 rounded-full bg-red-500 animate-pulse"></span>
                   <span className="text-xs font-bold uppercase tracking-wider text-red-400">
-                    No Ar • Ao Vivo
+                    No Ar • 24 Horas
                   </span>
                 </div>
                 <span className="text-xs font-semibold text-amber-400/90 hidden sm:inline-block">
@@ -139,7 +139,7 @@ export function RadioPlayerHero() {
                 </div>
                 <div className="flex items-center gap-1.5 text-stone-300">
                   <Users className="size-3.5 text-amber-400" />
-                  <span>{listenerCount} brotos sintonizados</span>
+                  <span>{listenerCount} ouvintes agora</span>
                 </div>
               </div>
             </div>
@@ -148,7 +148,7 @@ export function RadioPlayerHero() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center my-8">
               {/* Vinyl Record Visual */}
               <div className="md:col-span-5 flex justify-center">
-                <div className="relative size-52 sm:size-64 rounded-full flex items-center justify-center p-2 shadow-2xl shadow-black">
+                <div className="relative size-48 sm:size-60 rounded-full flex items-center justify-center p-2 shadow-2xl shadow-black">
                   {/* Vinyl Disc Body with Grooves */}
                   <div
                     className={`size-full rounded-full vinyl-grooves border-4 border-stone-800/80 flex items-center justify-center relative shadow-inner ${
@@ -169,7 +169,6 @@ export function RadioPlayerHero() {
                               <span className="font-serif text-[7px] sm:text-[8px] font-medium text-amber-200/80 uppercase">
                                 Doces Memórias
                               </span>
-                              {/* Center Spindle Hole */}
                               <div className="size-2 rounded-full bg-[#0c0a09] mt-1 border border-stone-600"></div>
                             </div>
                           </div>
@@ -178,7 +177,6 @@ export function RadioPlayerHero() {
                     </div>
                   </div>
 
-                  {/* Pulsing glow ring when playing */}
                   {isPlaying && (
                     <div className="absolute inset-0 rounded-full border border-amber-500/40 animate-ping pointer-events-none opacity-30"></div>
                   )}
@@ -186,30 +184,19 @@ export function RadioPlayerHero() {
               </div>
 
               {/* Program & Controls Information */}
-              <div className="md:col-span-7 space-y-6 text-left">
+              <div className="md:col-span-7 space-y-5 text-left">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-md border border-amber-500/20">
-                      Programa no Ar ({currentProgram.time})
+                      Transmissão Contínua • 24 Horas
                     </span>
                   </div>
                   <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                    {currentProgram.title}
+                    {programTitle}
                   </h2>
-                  <p className="text-sm text-stone-300 mt-2 leading-relaxed font-light">
-                    {currentProgram.description}
+                  <p className="text-xs sm:text-sm text-stone-300 mt-2 leading-relaxed font-light">
+                    {programDescription}
                   </p>
-
-                  <div className="flex flex-wrap gap-1.5 mt-3">
-                    {currentProgram.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-stone-800/80 text-amber-200/90 border border-amber-900/30"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
 
                 {/* Equalizer Visualizer Spectrum */}
@@ -217,15 +204,15 @@ export function RadioPlayerHero() {
                   <div className="flex items-center justify-between text-xs text-stone-400">
                     <span className="flex items-center gap-1.5">
                       <Headphones className="size-3.5 text-amber-400" />
-                      <span>{isPlaying ? "Transmitindo o Melhor do Iê-Iê-Iê" : "Pronto para tocar"}</span>
+                      <span>{isPlaying ? "Transmitindo Áudio HD (128kbps)" : "Pronto para sintonizar"}</span>
                     </span>
                     <span className="text-amber-400/80 font-mono text-[11px]">
-                      {isPlaying ? "STATUS: NO AR (HD)" : "STATUS: PAUSADO"}
+                      {isPlaying ? "NO AR" : "PAUSADO"}
                     </span>
                   </div>
 
                   {/* Frequency Spectrum Bars */}
-                  <div className="flex items-end justify-between gap-1 h-12 pt-1 px-1 bg-black/40 rounded-xl border border-stone-900">
+                  <div className="flex items-end justify-between gap-1 h-10 pt-1 px-1 bg-black/40 rounded-xl border border-stone-900">
                     {[
                       "eq-bar-1", "eq-bar-2", "eq-bar-3", "eq-bar-4", "eq-bar-5",
                       "eq-bar-2", "eq-bar-4", "eq-bar-1", "eq-bar-3", "eq-bar-5",
@@ -245,7 +232,6 @@ export function RadioPlayerHero() {
                   </div>
                 </div>
 
-                {/* Error / Notice feedback */}
                 {error && (
                   <p className="text-xs text-amber-300/90 bg-amber-950/50 border border-amber-800/50 rounded-lg p-2.5">
                     {error}
@@ -253,7 +239,7 @@ export function RadioPlayerHero() {
                 )}
 
                 {/* Primary Play Button & Volume Slider Controls */}
-                <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+                <div className="flex flex-col sm:flex-row items-center gap-4 pt-1">
                   {/* Big Play / Pause Button */}
                   <button
                     onClick={togglePlay}
@@ -267,7 +253,7 @@ export function RadioPlayerHero() {
                     ) : (
                       <Play className="size-6 fill-current text-stone-950 ml-1 group-hover:scale-110 transition-transform" />
                     )}
-                    <span>{isPlaying ? "PAUSAR TRANSMISSÃO" : "OUVIR JOVEM GUARDA"}</span>
+                    <span>{isPlaying ? "PAUSAR" : "OUVIR AO VIVO"}</span>
                   </button>
 
                   {/* Volume Control Bar */}
@@ -298,7 +284,7 @@ export function RadioPlayerHero() {
             </div>
 
             {/* Bottom Actions of the Player */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pt-6 border-t border-stone-800/80">
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-5 border-t border-stone-800/80">
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setLiked(!liked)}
@@ -323,48 +309,22 @@ export function RadioPlayerHero() {
 
               <div className="flex items-center gap-3">
                 <Link
-                  href="/#pedir-musica"
-                  className="flex items-center gap-1.5 text-xs text-amber-300 hover:text-amber-200 font-semibold hover:underline"
+                  href="/#sobre"
+                  className="text-xs text-stone-400 hover:text-amber-300 transition-colors"
                 >
-                  <Music className="size-3.5" />
-                  <span>Pedir um Sucesso dos Anos 60</span>
+                  Sobre a Rádio
                 </Link>
                 <span className="text-stone-700">•</span>
                 <Link
                   href="/contato"
-                  className="flex items-center gap-1.5 text-xs text-stone-400 hover:text-amber-300 transition-colors"
+                  className="flex items-center gap-1 text-xs text-amber-300 hover:text-amber-200 font-semibold hover:underline"
                 >
-                  <span>Fale Conosco</span>
+                  <Mail className="size-3.5" />
+                  <span>Contato ({RADIO_CONFIG.contactEmail})</span>
                 </Link>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Feature Highlights beneath Player */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-8">
-          {[
-            { title: "O Trio Sagrado", desc: "Roberto, Erasmo e Wanderléa", icon: Sparkles },
-            { title: "Bailes dos Anos 60", desc: "The Fevers, Blue Caps & Os Incríveis", icon: Disc3 },
-            { title: "Acervo Histórico", desc: "Compactos e LPs originais", icon: Flame },
-            { title: "Contato Oficial", desc: RADIO_CONFIG.contactEmail, icon: Heart },
-          ].map((feat) => {
-            const Icon = feat.icon;
-            return (
-              <div
-                key={feat.title}
-                className="bg-[#14110e]/70 border border-amber-900/20 rounded-2xl p-4 text-center hover:border-amber-500/30 transition-colors"
-              >
-                <div className="flex justify-center mb-2">
-                  <div className="size-8 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400">
-                    <Icon className="size-4" />
-                  </div>
-                </div>
-                <h4 className="font-semibold text-xs sm:text-sm text-stone-200">{feat.title}</h4>
-                <p className="text-[11px] text-stone-400 mt-0.5 truncate">{feat.desc}</p>
-              </div>
-            );
-          })}
         </div>
       </div>
     </section>

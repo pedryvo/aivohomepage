@@ -8,7 +8,7 @@ import React, {
   useState,
   useCallback,
 } from "react";
-import { RADIO_CONFIG, DAILY_SCHEDULE, ScheduleItem } from "./radio-config";
+import { RADIO_CONFIG } from "./radio-config";
 
 interface AudioContextType {
   isPlaying: boolean;
@@ -16,7 +16,8 @@ interface AudioContextType {
   isMuted: boolean;
   volume: number;
   error: string | null;
-  currentProgram: ScheduleItem;
+  programTitle: string;
+  programDescription: string;
   togglePlay: () => void;
   play: () => void;
   pause: () => void;
@@ -35,35 +36,20 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolumeState] = useState(0.85);
   const [error, setError] = useState<string | null>(null);
-  const [listenerCount, setListenerCount] = useState(148);
+  const [listenerCount, setListenerCount] = useState(164);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  // Determine current active program based on local time
-  const getCurrentProgram = useCallback((): ScheduleItem => {
-    const hour = new Date().getHours();
-    const active = DAILY_SCHEDULE.find((prog) => {
-      if (prog.startHour <= prog.endHour) {
-        return hour >= prog.startHour && hour < prog.endHour;
-      }
-      return hour >= prog.startHour || hour < prog.endHour;
-    });
-    return active || DAILY_SCHEDULE[0];
-  }, []);
-
-  const [currentProgram, setCurrentProgram] = useState<ScheduleItem>(getCurrentProgram);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentProgram(getCurrentProgram());
-      // Slight fluctuation in listeners for realistic live feel
+      // Subtle natural listener count fluctuation
       setListenerCount((prev) => {
         const delta = Math.floor(Math.random() * 5) - 2;
-        return Math.max(120, Math.min(380, prev + delta));
+        return Math.max(130, Math.min(420, prev + delta));
       });
-    }, 60000);
+    }, 45000);
 
     return () => clearInterval(timer);
-  }, [getCurrentProgram]);
+  }, []);
 
   // Initialize audio element
   useEffect(() => {
@@ -87,8 +73,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
     const handleError = () => {
       setIsLoading(false);
       setIsPlaying(false);
-      // For streaming radios, if stream is connecting or unavailable, provide friendly state
-      setError("Conectando ao sinal de transmissão...");
+      setError("Conectando ao sinal da rádio...");
     };
 
     audio.addEventListener("waiting", handleWaiting);
@@ -111,7 +96,6 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
     setError(null);
     setIsLoading(true);
 
-    // Refresh live stream url to avoid stale cache on reconnect
     const currentSrc = audioRef.current.src;
     if (!currentSrc || currentSrc === "" || currentSrc.includes("about:blank")) {
       audioRef.current.src = RADIO_CONFIG.streamUrl;
@@ -125,7 +109,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
           setIsPlaying(true);
         })
         .catch((err) => {
-          console.warn("Playback error/interrupted:", err);
+          console.warn("Playback error:", err);
           setIsLoading(false);
           setIsPlaying(false);
           setError("Clique novamente para iniciar a transmissão ao vivo.");
@@ -175,7 +159,8 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
         isMuted,
         volume,
         error,
-        currentProgram,
+        programTitle: RADIO_CONFIG.programTitle,
+        programDescription: RADIO_CONFIG.programDescription,
         togglePlay,
         play,
         pause,
