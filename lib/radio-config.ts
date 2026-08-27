@@ -13,10 +13,9 @@ export interface RadioConfig {
 
 /**
  * CONFIGURAÇÃO DA RÁDIO DOCES MEMÓRIAS - JOVEM GUARDA
- * 
- * Para alterar a URL do streaming no futuro, basta atualizar a constante STREAM_URL abaixo.
  */
-export const STREAM_URL = "https://stream.zeno.fm/f3wvbbqmdg8uv"; // Substitua pela URL final do seu streaming de Jovem Guarda.
+export const STREAM_URL = "http://64.177.41.185:8000/live";
+export const M3U_STREAM_URL = "http://64.177.41.185:8000/live.m3u";
 
 export const RADIO_CONFIG: RadioConfig = {
   name: "Rádio Doces Memórias",
@@ -24,6 +23,7 @@ export const RADIO_CONFIG: RadioConfig = {
   tagline: "É uma brasa, mora! A rádio 100% dedicada aos grandes sucessos da Jovem Guarda brasileira.",
   contactEmail: "pedryvo@gmail.com",
   streamUrl: STREAM_URL,
+  backupStreamUrl: M3U_STREAM_URL,
   frequencyLabel: "Web FM • Jovem Guarda Online",
   bitrate: "128 kbps HD Estéreo",
   programTitle: "Doces Memórias: O Melhor da Jovem Guarda",
